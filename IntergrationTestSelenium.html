@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)file:///C:/Users/nam/AppData/Local/Temp/mume2019119-14672-7xuwbl.ssp5s.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>IntergrationTestSelenium</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="./IntergrationTestSelenium_files/katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="centerintegration-test-for-django-with-seleniumcenter"><center>Integration Test for Django with Selenium</center></h1>
+
+<hr>
+<p><strong>Outline:</strong></p>
+<ol start="0">
+<li>Giới thiệu</li>
+<li>Cài đặt</li>
+<li>Bắt đầu</li>
+<li>Cấu trúc Selenium</li>
+<li>Tính năng Selenium</li>
+<li>Chạy kiểm thử</li>
+</ol>
+<p><strong>Slide</strong> :<br>
+<a href="https://slides.com/hmthanh/integration-test-for-django-with-selenium/fullscreen/">https://slides.com/hmthanh/integration-test-for-django-with-selenium/fullscreen/</a></p>
+<h2 class="mume-header" id="0-gi%E1%BB%9Bi-thi%E1%BB%87u">0. Giới thiệu</h2>
+
+<p>Trang chủ : <a href="https://selenium.dev/">https://selenium.dev/</a></p>
+<p>Ngôn ngữ : Java</p>
+<p>Github: <a href="https://github.com/SeleniumHQ/selenium">https://github.com/SeleniumHQ/selenium</a></p>
+<p>Tài liệu chính thức của Selenium : <a href="https://selenium.dev/documentation/en/">https://selenium.dev/documentation/en/</a></p>
+<p>Tài liệu python : <a href="https://selenium-python.readthedocs.io/">https://selenium-python.readthedocs.io/</a></p>
+<p>Tài liệu chính thức của Django : <a href="https://docs.djangoproject.com/en/2.2/topics/testing/tools/">https://docs.djangoproject.com/en/2.2/topics/testing/tools/</a></p>
+<h2 class="mume-header" id="1-c%C3%A0i-%C4%91%E1%BA%B7t">1. Cài đặt</h2>
+
+<ul>
+<li>Cài đặt selenium</li>
+</ul>
+<pre data-role="codeBlock" data-info="sh" class="language-bash">pip <span class="token function">install</span> selenium
+</pre><p><em><strong>Cài đặt Chrome Driver Vào địa chi sau :</strong></em></p>
+<ul>
+<li><a href="https://github.com/lmc-eu/steward/wiki/Selenium-server-&amp;-browser-drivers">https://github.com/lmc-eu/steward/wiki/Selenium-server-&amp;-browser-drivers</a></li>
+<li><a href="https://selenium.dev/documentation/en/getting_started_with_webdriver/browsers/">https://selenium.dev/documentation/en/getting_started_with_webdriver/browsers/</a></li>
+</ul>
+<p>Chọn bản driver của Chrome theo hệ điê`u hành Linux hay Windows :</p>
+<table>
+<thead>
+<tr>
+<th>Trình duyệt</th>
+<th>Selenium driver</th>
+<th>Tải</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firefox</td>
+<td>Geckodriver</td>
+<td><a href="https://github.com/mozilla/geckodriver/releases">download</a></td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>Chromedriver</td>
+<td><a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">download</a></td>
+</tr>
+<tr>
+<td>MS Edge</td>
+<td>Microsoft WebDriver</td>
+<td><a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/">download</a></td>
+</tr>
+</tbody>
+</table>
+<p>Sau khi tải về ta bỏ vào 1 thư mục để chứa driver hoặc nếu trong Linux bạn chỉ cần bỏ vào thư mục <code>/bin</code></p>
+<h2 class="mume-header" id="2-b%E1%BA%AFt-%C4%91%E1%BA%A7u">2. Bắt đầu</h2>
+
+<p><img src="./IntergrationTestSelenium_files/basic_comms.png" alt="Webdriver"></p>
+<p>Cơ bản là Webdriver sẽ tương tác với trình duyệt thông qua Driver như ChromeDriver/FirefoxDriver/OperaDriver/... và Driver sẽ tương tác với trình duyệt, và gởi thông tin ngược trở lại</p>
+<p>Tương tự như Remote Server</p>
+<p><img src="./IntergrationTestSelenium_files/remote_comms.png" alt="Remote Server"></p>
+<p>Để sử dụng, ta cần import các Driver tương ứng với từng trình duyệt mà ta muốn test</p>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+
+webdriver<span class="token punctuation">.</span>Firefox
+webdriver<span class="token punctuation">.</span>FirefoxProfile
+webdriver<span class="token punctuation">.</span>Chrome
+webdriver<span class="token punctuation">.</span>ChromeOptions
+webdriver<span class="token punctuation">.</span>Ie
+webdriver<span class="token punctuation">.</span>Opera
+webdriver<span class="token punctuation">.</span>PhantomJS
+webdriver<span class="token punctuation">.</span>Remote
+webdriver<span class="token punctuation">.</span>DesiredCapabilities
+webdriver<span class="token punctuation">.</span>ActionChains
+webdriver<span class="token punctuation">.</span>TouchActions
+webdriver<span class="token punctuation">.</span>Proxy
+</pre><p>Trong Intergration Test, Django cung cấp hai phương thức là :</p>
+<ul>
+<li><code>LiveServerTestCase</code> - trong khi đang tải (load) trang thì không hiển thị CSS, sau khi tải xong rồi mới hiển thị CSS</li>
+<li><code>StaticLiveServerTestCase</code> - tải (load) được CSS đến đâu thì hiển thị CSS đến đó một cách song song.</li>
+</ul>
+<p>Trong trường hợp này mình dùng <code>StaticLiveServerTestCase</code> để kiểm tra :<br>
+Cấu trúc một lớp test</p>
+<ol>
+<li><code>setUpClass()</code> - thực thi trước khi chạy đến trường hợp test đầu tiên</li>
+<li><code>tearDownClass()</code> - thực thi sau khi chạy đến trường hợp test cuối cùng</li>
+<li><code>setUp()</code> - thực thi trước mỗi trường hợp test</li>
+<li><code>tearDown()</code> - thực thi sau mỗi trường hợp test</li>
+</ol>
+<p>Ngoài ra còn có setUpTestData() dùng để khởi tạo Database, nhớ là <code>setUpTestData()</code> không dùng được trong <code>LiveServerTestCase</code></p>
+<h2 class="mume-header" id="3-c%E1%BA%A5u-tr%C3%BAc-selenium">3. Cấu trúc Selenium</h2>
+
+<h4 class="mume-header" id="31-c%E1%BA%A5u-tr%C3%BAc-t%E1%BB%87p">3.1 Cấu trúc tệp</h4>
+
+<pre data-role="codeBlock" data-info="" class="language-"><code> ├── drivers
+ │ ├── chromedriver # Linux
+ │ ├── chromedriver.exe # Windows
+ ├── autotest # Thư mục test
+ │ ├── user
+ │ │ ├── example_child_tests1.py # Các test con phân theo danh mục
+ │ ├── product
+ │ │ ├── example_child_tests2.py
+ ├── │ test.py # Để chạy test chính
+</code></pre><h4 class="mume-header" id="32-c%E1%BA%A5u-tr%C3%BAc-l%E1%BB%9Bp">3.2 Cấu trúc lớp</h4>
+
+<p><strong>Ví dụ cơ bản</strong></p>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>contrib<span class="token punctuation">.</span>staticfiles<span class="token punctuation">.</span>testing <span class="token keyword">import</span> StaticLiveServerTestCase
+<span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">class</span> <span class="token class-name">TestName</span><span class="token punctuation">(</span>StaticLiveServerTestCase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Mở trình duyệt</span>
+    <span class="token decorator annotation punctuation">@classmethod</span>
+    <span class="token keyword">def</span> <span class="token function">setUpClass</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>setUpClass<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        CHROME_DRIVER_PATH <span class="token operator">=</span> <span class="token string">"C:\\...\\drivers\\chromedriver.exe"</span>
+        cls<span class="token punctuation">.</span>browser <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>CHROME_DRIVER_PATH<span class="token punctuation">)</span>
+
+    <span class="token comment"># Tắt trình duyệt</span>
+    <span class="token decorator annotation punctuation">@classmethod</span>
+    <span class="token keyword">def</span> <span class="token function">tearDownClass</span><span class="token punctuation">(</span>cls<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        cls<span class="token punctuation">.</span>browser<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>tearDownClass<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># Khởi tạo các tham số trước khi chạy testcase()</span>
+    <span class="token keyword">def</span> <span class="token function">setUp</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token builtin">super</span><span class="token punctuation">(</span>TestName<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>setUp<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># Testcase cần chạy</span>
+    <span class="token keyword">def</span> <span class="token function">helloTestCase</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>browser<span class="token punctuation">.</span>get<span class="token punctuation">(</span>self<span class="token punctuation">.</span>live_server_url <span class="token operator">+</span> <span class="token string">"\login"</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>assertEqual<span class="token punctuation">(</span><span class="token string">"Title"</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>driver<span class="token punctuation">.</span>title<span class="token punctuation">)</span>
+</pre><p>Trong đó <code>CHROME_DRIVER_PATH</code> là đường dẫn đến file <code>chromedriver.exe</code> mà chúng ta đã download ở trên, tương tự như Firefox</p>
+<pre data-role="codeBlock" data-info="python" class="language-python">cls<span class="token punctuation">.</span>browser <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Firefox<span class="token punctuation">(</span>FIREFOX_DRIVER_WINDOWS_PATH<span class="token punctuation">)</span>
+</pre><p>Lưu ý là máy phải cài sẵn Chrome hoặc Firefox</p>
+<p><strong>helloTestCase</strong> : Trong testcase <code>helloTestCase</code> ta sẽ kiểm tra trang web có thể tải được không và tiêu đều của trang web có phải là <code>Title</code> không <code>live_server_url</code> là biến lưu đường dẫn URL để truy cập vào trang web đang test (Nó thay đổi mỗi lần test)</p>
+<h2 class="mume-header" id="4-t%C3%ADnh-n%C4%83ng">4. Tính năng</h2>
+
+<p>Ở trên là ví dụ đơn giản để bạn hiểu cơ bản về cách tạo một Testcase bằng Selenium Tuy nhiên trong thực tế ta cần nhiều thao tác để kiểm thử hơn .</p>
+<h4 class="mume-header" id="41-ch%E1%BB%8Dn-th%E1%BA%BB">4.1 Chọn thẻ</h4>
+
+<p><strong>a) Tìm thẻ thông qua hàm</strong></p>
+<pre data-role="codeBlock" data-info="python" class="language-python">username <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">)</span>
+address <span class="token operator">=</span> cheese<span class="token punctuation">.</span>find_elements_by_name<span class="token punctuation">(</span><span class="token string">"address"</span><span class="token punctuation">)</span>
+</pre><p>Lưu ý :</p>
+<ul>
+<li>find_element_by...<br>
+=&gt; Tìm <strong>1</strong> đối tượng</li>
+<li>find_element<strong>s</strong>_by...<br>
+=&gt; Tìm nhiều đối tượng</li>
+</ul>
+<p>Các hàm tìm một thẻ :</p>
+<pre data-role="codeBlock" data-info="python" class="language-python">find_element_by_id
+find_element_by_name
+find_element_by_xpath
+find_element_by_link_text
+find_element_by_partial_link_text
+find_element_by_tag_name
+find_element_by_class_name
+find_element_by_css_selector
+</pre><p>Các hàm tìm nhiều thẻ :</p>
+<pre data-role="codeBlock" data-info="python" class="language-python">find_elements_by_name
+find_elements_by_xpath
+find_elements_by_link_text
+find_elements_by_partial_link_text
+find_elements_by_tag_name
+find_elements_by_class_name
+find_elements_by_css_selector
+</pre><p>Ví dụ chọn thẻ bằng <code>css_selector</code></p>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ol</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span>cheese</span><span class="token punctuation">&gt;</span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span>cheddar</span><span class="token punctuation">&gt;</span></span>…
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span>brie</span><span class="token punctuation">&gt;</span></span>…
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span>rochefort</span><span class="token punctuation">&gt;</span></span>…
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span>camembert</span><span class="token punctuation">&gt;</span></span>…
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+</pre><pre data-role="codeBlock" data-info="python" class="language-python">cheddar <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_css_selector<span class="token punctuation">(</span><span class="token string">"#cheese #cheddar"</span><span class="token punctuation">)</span>
+</pre><pre data-role="codeBlock" data-info="python" class="language-python">mucho_cheese <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_elements_by_css_selector<span class="token punctuation">(</span><span class="token string">"#cheese li"</span><span class="token punctuation">)</span>
+</pre><p>b) Chọn thẻ thông qua phương thức <strong>By</strong><br>
+Ngoài ra có thể sử dụng tìm 1 đối tượng bằng <code>find_element</code> và tìm nhiều đối tượng bằng <code>find_elements</code></p>
+<pre data-role="codeBlock" data-info="python" class="language-python">driver<span class="token punctuation">.</span>find_elements<span class="token punctuation">(</span>By<span class="token punctuation">.</span>ID<span class="token punctuation">,</span> <span class="token string">'username'</span><span class="token punctuation">)</span>
+</pre><p><strong>Một số trường hợp để chọn đối tượng By :</strong></p>
+<ul>
+<li>ID = "id"</li>
+<li>XPATH = "xpath"</li>
+<li>LINK_TEXT = "link text"</li>
+<li>PARTIAL_LINK_TEXT = "partial link text"</li>
+<li>NAME = "name"</li>
+<li>TAG_NAME = "tag name"</li>
+<li>CLASS_NAME = "class name"</li>
+<li>CSS_SELECTOR = "css selector"</li>
+</ul>
+<p>Tham khảo thêm : <a href="https://selenium.dev/documentation/en/getting_started_with_webdriver/locating_elements/">https://selenium.dev/documentation/en/getting_started_with_webdriver/locating_elements/</a><br>
+Thao khảo trang chủ : <a href="https://selenium-python.readthedocs.io/locating-elements.html">https://selenium-python.readthedocs.io/locating-elements.html</a></p>
+<h4 class="mume-header" id="42-thao-t%C3%A1c-nh%E1%BA%ADp">4.2 Thao tác nhập</h4>
+
+<h5 class="mume-header" id="a-send-keys-nh%E1%BA%ADp-m%E1%BB%99t-%C3%B4-d%E1%BB%AF-li%E1%BB%87u">a) send keys:  nhập một ô dữ liệu</h5>
+
+<pre data-role="codeBlock" data-info="python" class="language-python">driver<span class="token punctuation">.</span>find_element_by_name<span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+</pre><p>Xóa ô dữ liệu</p>
+<pre data-role="codeBlock" data-info="python" class="language-python">driver<span class="token punctuation">.</span>find_element_by_name<span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</pre><p><strong>b) click: Nhấn chọn một button</strong></p>
+<pre data-role="codeBlock" data-info="python" class="language-python">driver<span class="token punctuation">.</span>find_element_by_css_selector<span class="token punctuation">(</span><span class="token string">"input[type='submit']"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</pre><p><strong>c) Nhấn một phím</strong><br>
+Ví dụ nhấn nút RETURN</p>
+<pre data-role="codeBlock" data-info="python" class="language-python">elem<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span>Keys<span class="token punctuation">.</span>RETURN<span class="token punctuation">)</span>
+</pre><h4 class="mume-header" id="43-thao-t%C3%A1c-%C4%91%E1%BB%8Bnh-h%C6%B0%E1%BB%9Bng">4.3 Thao tác định hướng</h4>
+
+<p><strong>a) Đi đến:</strong></p>
+<pre data-role="codeBlock" data-info="python" class="language-python">driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://localhost:80000"</span><span class="token punctuation">)</span>
+</pre><p>b) Lấy URL</p>
+<pre data-role="codeBlock" data-info="python" class="language-python">driver<span class="token punctuation">.</span>current_url
+</pre><p>c) Quay lại</p>
+<pre data-role="codeBlock" data-info="python" class="language-python">driver<span class="token punctuation">.</span>back<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</pre><p>d) Tiến lên</p>
+<pre data-role="codeBlock" data-info="python" class="language-python">driver<span class="token punctuation">.</span>navigate<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>forward<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</pre><p>e) Tiêu đề</p>
+<pre data-role="codeBlock" data-info="python" class="language-python">driver<span class="token punctuation">.</span>getTitle<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</pre><p>f) Refresh</p>
+<pre data-role="codeBlock" data-info="python" class="language-python">driver<span class="token punctuation">.</span>navigate<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>refresh<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</pre><h4 class="mume-header" id="44-thao-t%C3%A1c-chuy%E1%BB%83n-c%E1%BB%ADa-s%E1%BB%95-ho%E1%BA%B7c-khung-moving-between-windows-and-frames">4.4 Thao tác chuyển cửa sổ hoặc khung (Moving between windows and frames)</h4>
+
+<pre data-role="codeBlock" data-info="python" class="language-python">driver<span class="token punctuation">.</span>switch_to_window<span class="token punctuation">(</span><span class="token string">"windowName"</span><span class="token punctuation">)</span>
+</pre><h4 class="mume-header" id="45-ch%E1%BB%9D-wait">4.5 Chờ (wait)</h4>
+
+<p>Dùng để chờ khi thực hiện những thao tác khác Có hai loại chờ là :</p>
+<p><strong>a) implicit wait</strong><br>
+Là chờ đúng thời gian rồi mới quay lại chạy tiếp</p>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+
+driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Firefox<span class="token punctuation">(</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>implicitly_wait<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment"># Chờ 10s sau mới bắt đầu tải trang</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://somedomain/url_that_delays_loading"</span><span class="token punctuation">)</span>
+myDynamicElement <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">"myDynamicElement"</span><span class="token punctuation">)</span>
+</pre><p><strong>b) explicit wait</strong><br>
+Là chờ đến khi nào thỏa điều kiện thì mới chạy tiếp</p>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>support<span class="token punctuation">.</span>ui <span class="token keyword">import</span> WebDriverWait
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>support <span class="token keyword">import</span> expected_conditions <span class="token keyword">as</span> EC
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>common<span class="token punctuation">.</span>by <span class="token keyword">import</span> By
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">def</span> <span class="token function">testLogin</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    self<span class="token punctuation">.</span>browser<span class="token punctuation">.</span>get<span class="token punctuation">(</span>self<span class="token punctuation">.</span>live_server_url <span class="token operator">+</span> <span class="token string">'/login'</span><span class="token punctuation">)</span>
+    title <span class="token operator">=</span> WebDriverWait<span class="token punctuation">(</span>self  <span class="token punctuation">.</span>browser<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span>until<span class="token punctuation">(</span>
+        EC<span class="token punctuation">.</span>element_to_be_clickable<span class="token punctuation">(</span><span class="token punctuation">(</span>By<span class="token punctuation">.</span>CSS_SELECTOR<span class="token punctuation">,</span> <span class="token string">'#btnLogin'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</pre><p>Giả sử ban đầu nút <code>btnLogin</code> bị disable, thì nó sẽ chờ đến khi nào nút có id là <code>btnLogin</code> được kích hoạt lại</p>
+<p>Một số điều kiện thường sử dụng (Expected Conditions)</p>
+<pre data-role="codeBlock" data-info="python" class="language-python">title_is
+title_contains
+presence_of_element_located
+visibility_of_element_located
+visibility_of
+presence_of_all_elements_located
+text_to_be_present_in_element
+text_to_be_present_in_element_value
+frame_to_be_available_and_switch_to_it
+invisibility_of_element_located
+element_to_be_clickable
+staleness_of
+element_to_be_selected
+element_located_to_be_selected
+element_selection_state_to_be
+element_located_selection_state_to_be
+alert_is_present
+</pre><p>Giải thích một số cài thường gặp</p>
+<ul>
+<li><code>invisibility_of_element</code> - phần tử không hiển thị</li>
+<li><code>number_of_windows_to_be</code> - số lượng cửa sổ</li>
+<li><code>url_changes</code>,<code>url_contains</code>, <code>url_matches</code>, <code>url_to_be</code></li>
+<li><code>visibility_of_element_located</code> - phần tử hiển thị và vị trí lớn hơn 0</li>
+</ul>
+<p>Ngoài ra có rất nhiều điều kiện khác mà bạn muốn ở link <strong>Expected Condition Support</strong></p>
+<p><a href="https://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.support.expected_conditionss">https://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.support.expected_conditionss</a></p>
+<h4 class="mume-header" id="45-nh%E1%BB%AFng-ch%E1%BB%A7-%C4%91%E1%BB%81-kh%C3%A1c">4.5 Những chủ đề khác</h4>
+
+<p><strong>a) JavaScript alerts, prompts and confirmations</strong></p>
+<ul>
+<li>Alert</li>
+<li>Confirm</li>
+<li>Prompt</li>
+</ul>
+<p>Ví dụ : Tua tới cuối hàm hình</p>
+<pre data-role="codeBlock" data-info="python" class="language-python">driver<span class="token punctuation">.</span>execute_script<span class="token punctuation">(</span><span class="token string">"window.scrollTo(0, document.body.scrollHeight);"</span><span class="token punctuation">)</span>
+</pre><p><strong>b) Special Keys</strong></p>
+<p><strong>c) Remote webdriver</strong></p>
+<p><strong>d) Desired Capabilities</strong><br>
+Kiểm tra cấu hình của remote khi kết nối</p>
+<p><strong>e) Action Chains</strong><br>
+Là chuỗi các tương tác ở mức độ sâu hơn như di chuyển chuột<br>
+=&gt; Thường để dùng cho các thao tác phức tạp như di chuyển chuột, drag và drop</p>
+<p><strong>f) Touch Actions</strong><br>
+Các thao tác chạm và chuột</p>
+<p><strong>g) Proxy</strong></p>
+<p><strong>h) Utilities</strong></p>
+<ul>
+<li>Application Cache</li>
+<li>Cookies</li>
+</ul>
+<p><strong>i) Thao tác riêng với từng Driver</strong></p>
+<ul>
+<li>Chrome WebDriver</li>
+<li>Firefox WebDriver</li>
+</ul>
+<p><strong>k) Hỗ trợ màu sắc</strong></p>
+<p><strong>l) Chụp ảnh màn hình</strong></p>
+<pre data-role="codeBlock" data-info="python" class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+
+driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Firefox<span class="token punctuation">(</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://www.python.org/'</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>save_screenshot<span class="token punctuation">(</span><span class="token string">'screenshot.png'</span><span class="token punctuation">)</span>
+driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</pre><p>Tham khảo Selenium.Dev : <a href="https://selenium.dev/documentation/en/webdriver/keyboard/">https://selenium.dev/documentation/en/webdriver/keyboard/</a></p>
+<p>Tham khảo Javapoint : <a href="https://www.javatpoint.com/selenium-tutorial">https://www.javatpoint.com/selenium-tutorial</a></p>
+<p>Tham khảo Selenium-Python <a href="https://selenium-python.readthedocs.io/api.html">https://selenium-python.readthedocs.io/api.html</a></p>
+<h2 class="mume-header" id="5-ch%E1%BA%A1y-ki%E1%BB%83m-th%E1%BB%AD">5. Chạy kiểm thử</h2>
+
+<p>Run :</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash">python manage.py <span class="token function">test</span> <span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>.autotest.test.helloTestCase
+</pre>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  </body></html>
