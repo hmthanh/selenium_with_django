@@ -36,6 +36,7 @@ pip install selenium
 - https://selenium.dev/documentation/en/getting_started_with_webdriver/browsers/
 
 Chọn bản driver của Chrome theo hệ điê`u hành Linux hay Windows :
+
 | Trình duyệt | Selenium driver | Tải |
 |---------------|---------------------|-------|
 | Firefox | Geckodriver | [download](https://github.com/mozilla/geckodriver/releases) |
